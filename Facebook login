@@ -1,0 +1,32 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Fcebooklogin1 {
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.facebook.com/");		
+		driver.findElement(By.id("email")).sendKeys("jasdfghj");		
+		driver.findElement(By.name("pass")).sendKeys("asdfghjkl");		
+		driver.findElement(By.name("login")).click();
+		String title = driver.getTitle();
+		System.out.println(title);
+		if(title.equals("facebook-login"))
+		{
+			System.out.println(title);
+			
+		}
+		else
+		{
+			System.out.println("Fail:Home page is not displayed");
+		}
+		
+		String url = driver.getCurrentUrl();
+		System.out.println(url);
+		Thread.sleep(500000);
+		driver.close();
+
+	}
+
+}
